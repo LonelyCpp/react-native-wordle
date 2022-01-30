@@ -1,11 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
+import ScreenHeader from './app/components/ScreenHeader';
+import GameScreen from './app/GameScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <SafeAreaView style={styles.container}>
+        <ScreenHeader />
+        <GameScreen />
+      </SafeAreaView>
     </View>
   );
 }
@@ -13,8 +17,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#000',
   },
 });
