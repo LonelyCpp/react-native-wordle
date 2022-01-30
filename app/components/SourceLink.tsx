@@ -3,7 +3,7 @@ import {Linking, Platform, StyleSheet, Text, View} from 'react-native';
 
 const HOME_URL = 'https://github.com/LonelyCpp/react-native-wordle';
 
-const ScreenFooter = () => {
+const SourceLink = () => {
   return (
     <View style={styles.container}>
       <Text
@@ -14,7 +14,7 @@ const ScreenFooter = () => {
         onPress={
           Platform.OS !== 'web' ? () => Linking.openURL(HOME_URL) : undefined
         }>
-        (source)
+        (github)
       </Text>
     </View>
   );
@@ -22,15 +22,15 @@ const ScreenFooter = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'absolute',
+    right: 12,
+    top: 16,
   },
   subtitle: {
     color: '#5998c5',
     fontWeight: '400',
-    fontSize: 12,
+    fontSize: 16,
   },
 });
 
-export default ScreenFooter;
+export default SourceLink;
