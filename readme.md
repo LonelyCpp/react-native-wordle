@@ -14,7 +14,7 @@ Tech stack
 
 - react native
 - expo (+ react native web)
-- typecript
+- typescript
 
 ## acknowledgements
 
