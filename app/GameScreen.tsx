@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
   score: {
     color: '#fff',
     fontSize: 14,
+    marginBottom: 12,
   },
   buttonRow: {
     flexDirection: 'row',
