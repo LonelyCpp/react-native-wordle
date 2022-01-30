@@ -8,7 +8,7 @@ A simple re-implementation of wordle.
 - letters that don't exist in the word, are shown in grey
 - a shareable emoji representation of your score
 
-Plat it on the web here : https://lonelycpp.github.io/react-native-wordle/
+Play it on the web here : https://lonelycpp.github.io/react-native-wordle/
 
 Tech stack
 
@@ -18,5 +18,6 @@ Tech stack
 
 ## acknowledgements
 
-- https://www.powerlanguage.co.uk/wordle/
-- https://github.com/dwyl/english-words
+- https://www.powerlanguage.co.uk/wordle/ (original game)
+- https://github.com/dwyl/english-words (word list)
+- https://github.com/hannahcode/wordle/blob/main/src/constants/wordlist.ts (better word list)
