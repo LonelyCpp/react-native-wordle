@@ -17,7 +17,9 @@ export const getRandomWord = (): string => {
 };
 
 export const getWordleEmoji = (word: string, guessList: string[]): string => {
-  let output = `Wordle ${guessList.length}/${MAX_GUESSES}\n\n`;
+  const hasWon = guessList[guessList.length - 1] === word;
+
+  let output = `Wordle ${hasWon ? guessList.length : 'x'}/${MAX_GUESSES}\n\n`;
 
   guessList.forEach(row => {
     let line = '';
