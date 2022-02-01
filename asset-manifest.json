@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/react-native-wordle/static/js/app.ba93a6d9.chunk.js",
-    "app.js.map": "/react-native-wordle/static/js/app.ba93a6d9.chunk.js.map",
+    "app.js": "/react-native-wordle/static/js/app.266fdb3b.chunk.js",
+    "app.js.map": "/react-native-wordle/static/js/app.266fdb3b.chunk.js.map",
     "runtime~app.js": "/react-native-wordle/static/js/runtime~app.2e78fe0b.js",
     "runtime~app.js.map": "/react-native-wordle/static/js/runtime~app.2e78fe0b.js.map",
     "static/js/2.77f199e2.chunk.js": "/react-native-wordle/static/js/2.77f199e2.chunk.js",
@@ -17,6 +17,6 @@
   "entrypoints": [
     "static/js/runtime~app.2e78fe0b.js",
     "static/js/2.77f199e2.chunk.js",
-    "static/js/app.ba93a6d9.chunk.js"
+    "static/js/app.266fdb3b.chunk.js"
   ]
 }
