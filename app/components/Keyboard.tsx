@@ -6,11 +6,16 @@ interface KeyboardProps {
   disabledKeyList: string[];
 }
 
-const keySequence = [
+export enum SpecialKeyboardKeys {
+  DELETE = 'delete',
+  GUESS = 'guess',
+}
+
+const keySequence: string[][] = [
   ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
   ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
   ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
-  ['delete', 'guess'],
+  [SpecialKeyboardKeys.DELETE, SpecialKeyboardKeys.GUESS],
 ];
 
 const Keyboard = (props: KeyboardProps) => {

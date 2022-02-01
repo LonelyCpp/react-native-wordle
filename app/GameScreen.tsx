@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {StyleSheet, Text, View, Clipboard} from 'react-native';
+import {StyleSheet, Text, View, Clipboard, Platform} from 'react-native';
 import Button from './components/Button';
-import Keyboard from './components/Keyboard';
+import Keyboard, {SpecialKeyboardKeys} from './components/Keyboard';
 import TextBlock, {TextBlockState} from './components/TextBlock';
 import {MAX_GUESSES, MAX_WORD_LEN} from './constants/gameConstants';
 import {getInitialBoard, getRandomWord, getWordleEmoji} from './gameUtils';
@@ -50,22 +50,42 @@ const GameScreen = () => {
 
   const onKeyPress = useCallback(
     (key: string) => {
-      if (key === 'delete') {
+      if (key === SpecialKeyboardKeys.DELETE) {
         setInputWord(prev => prev.slice(0, -1));
-      } else if (key === 'guess') {
+      } else if (key === SpecialKeyboardKeys.GUESS) {
         setGuessList(prev => [...prev, inputWord.toUpperCase()]);
         setInputWord('');
       } else if (key.length === 1) {
         setInputWord(prev => {
-          if (prev.length < MAX_WORD_LEN) {
+          if (prev.length < MAX_WORD_LEN && !disabledLetters.includes(key)) {
             return prev + key;
           }
+
           return prev;
         });
       }
     },
-    [inputWord],
+    [disabledLetters, inputWord],
   );
+
+  useEffect(() => {
+    if (Platform.OS === 'web') {
+      const callback = (event: KeyboardEvent) => {
+        const key = event.key;
+
+        if (/^[A-Za-z]$/.test(key)) {
+          onKeyPress(key.toUpperCase());
+        } else if (key === 'Enter' && inputWord.length === MAX_WORD_LEN) {
+          onKeyPress(SpecialKeyboardKeys.GUESS);
+        } else if (key === 'Backspace') {
+          onKeyPress(SpecialKeyboardKeys.DELETE);
+        }
+      };
+
+      window.addEventListener('keyup', callback);
+      return () => window.removeEventListener('keyup', callback);
+    }
+  }, [inputWord.length, onKeyPress]);
 
   const wordleEmoji: string = useMemo(() => {
     if (!gameOver) {
@@ -134,7 +154,9 @@ const GameScreen = () => {
           <Keyboard
             disabledKeyList={[
               ...disabledLetters,
-              inputWord.length !== 5 ? 'guess' : '',
+              inputWord.length !== MAX_WORD_LEN
+                ? SpecialKeyboardKeys.GUESS
+                : '',
             ]}
             onKeyPress={onKeyPress}
           />
