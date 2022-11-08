@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "react-native-wordle",
+    "name": "React Native Wordle",
+    "description": "A clone of the Wordle game, built on React Native for web and mobile",
     "slug": "react-native-wordle",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
