@@ -1,9 +1,10 @@
 {
   "background_color": "#ffffff",
+  "description": "A clone of the Wordle game, built on React Native for web and mobile",
   "display": "standalone",
   "lang": "en",
-  "name": "react-native-wordle",
-  "short_name": "react-native-wordle",
+  "name": "React Native Wordle",
+  "short_name": "React Native Wordle",
   "start_url": "/?utm_source=web_app_manifest",
   "orientation": "portrait",
   "icons": [
